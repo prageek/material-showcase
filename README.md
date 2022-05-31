@@ -1,8 +1,10 @@
-## Intro: Modified Code
-This is a modified version of the ML Kit Showcase Showcase Android app which is hosted in https://github.com/googlesamples/mlkit
-Base on the instruction, "DON'T reinvent the wheel. That will be viewed negatively in this case." this source code is chosen to demonstrate how real time object detection and recognition works, as it is. 
+## Introduction
+This is a modified version of the ML Kit Showcase Android app which is hosted in https://github.com/googlesamples/mlkit
+Base on the quote, "DON'T reinvent the wheel" this source code is chosen to demonstrate how real time object detection and recognition works, as it is. 
 
 The underlying custom model used is the TensorFlow Lite model, is trained to identify cereal brands.
+
+This architecture is old and not compliant to the popular Clean Architecture principals. There is a WIP I initiated is hosted here https://github.com/prageek/Recognize
 
 # ML Kit Vision Showcase App with Material Design
 
@@ -10,13 +12,11 @@ This app demonstrates how to build an end-to-end user experience with
 [Google ML Kit APIs](https://developers.google.com/ml-kit/guides) and following the
 [new Material for ML design guidelines](https://material.io/design/machine-learning/).
 
-The goal of this app is to showcase an ideal ML Kit driven end to end solution for various ML Kit vision APIs and use cases. The following use cases are covered:
-* Visual search using the Object Detection & Tracking API - An end to end workflow for object detection and product search
-* “Wild Bird” search using the Object Detection & Tracking API - An end to end workflow for object detection and search using a custom TensorFlow Lite model
-* Barcode detection - An end to end barcode scanning solution
+The goal of this app is to showcase the camera preview and perform following use case. The following use cases are covered:
+* “cereal” brand search using the Object Detection & Tracking API - An end to end workflow for object detection and search using a custom TensorFlow Lite model
 
-<img src="screenshots/live_odt.gif" width="256"/> <img src="screenshots/static_odt.gif" width="256"/>
-<img src="screenshots/live_barcode.gif" width="256"/>
+
+<img src="screenshots/live_odt.gif" width="256"/> 
 
 ## Steps to run the app
 
@@ -25,27 +25,17 @@ The goal of this app is to showcase an ideal ML Kit driven end to end solution f
 
 ## How to use the app
 
-This app supports two usage scenarios: Live Camera and Static Image.
+This app supports Live Camera based object detection. In this case cereal brands.
 
 ### Live Camera scenario
 
-It uses the camera preview as input and contains three workflow: object detection & visual search,
-object detection & custom classification, and barcode detection. There's also a Settings page to
+It uses the camera preview as input and contains object detection & custom classification. There's also a Settings page to
 allow you to configure several options:
 - Camera
   - Preview Size - Specify the preview size of rear camera manually (Default size is chose appropriately based on screen size)
 - Object detection
     - Enable Multiple Objects -- Enable multiple objects to be detected at once.
     - Enable classification -- Enable coarse classification
-- Product search
-    - Enable auto search -- If enabled, search request will be fired automatically once object is detected and confirmed, otherwise a search button will appear to trigger search manually
-    - Confirmation time in manual search -- Required time that an manually-detected object needs to be in focus before it is confirmed.
-    - Confirmation time in auto search -- Required time that an auto-detected object needs to be in focus before it is confirmed.
-- Barcode detection
-    - Barcode reticle width -- Size of barcode reticle width relative to the camera preview width
-    - Barcode reticle height -- Size of the barcode reticle height relative to the camera preview height
-    - Enable Barcode size check -- Will prompt user to "move closer" if the detected barcode is too small
-    - Delay loading result -- Simulates a case where the detected barcode requires further processing before displaying the result.
 
 ### Static Image scenario
 
